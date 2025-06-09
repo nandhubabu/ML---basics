@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Grade Predictor</title>
+</head>
+<body>
+    <h2>🎓 Student Grade Predictor</h2>
+    <form method="post" action="/predict">
+        <label>G1 (1st Period Grade):</label><br>
+        <input type="number" name="G1" required><br><br>
+
+        <label>G2 (2nd Period Grade):</label><br>
+        <input type="number" name="G2" required><br><br>
+
+        <label>Study Time (1-4):</label><br>
+        <input type="number" name="studytime" min="1" max="4" required><br><br>
+
+        <label>Past Failures:</label><br>
+        <input type="number" name="failures" min="0" required><br><br>
+
+        <label>Absences:</label><br>
+        <input type="number" name="absences" min="0" required><br><br>
+
+        <button type="submit">Predict Grade</button>
+    </form>
+
+    {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+    {% endif %}
+</body>
+</html>
