@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>House Price Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h2>California House Price Predictor</h2>
+  <form action="/predict" method="post">
+    {% for f in features %}
+      <label>{{ f }}:</label><br>
+      <input type="number" step="any" name="{{ f }}" required><br><br>
+    {% endfor %}
+    <button type="submit">Predict</button>
+  </form>
+  {% if prediction_text %}
+    <h3>{{ prediction_text }}</h3>
+  {% endif %}
+</body>
+</html>
